@@ -1,5 +1,5 @@
 # AudioToText
-## Deployed Link: https://64e9de215e38212d36e87ddb--shimmering-torrone-513169.netlify.app/
+## Deployed Link: https://64e9e052ee3f7a2796b6feb1--shimmering-torrone-513169.netlify.app/
 ## Steps to follow to setup the project:
 ### git clone https://github.com/RRBarman/SpeechToText
 ### cd [project directory]
