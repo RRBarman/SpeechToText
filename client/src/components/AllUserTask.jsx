@@ -14,7 +14,7 @@ const AllUserTask = () => {
     }
     try {
       const response = await fetch(
-        import.meta.env.VITE_BASE_URL + "tasks/gatAllTask",
+        import.meta.env.VITE_BASE_URL + "/tasks/gatAllTask",
         {
           method: "GET",
           headers: {

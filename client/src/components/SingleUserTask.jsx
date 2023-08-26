@@ -12,7 +12,7 @@ const SingleUserTask = () => {
   async function getSingleTask() {
     try {
       const response = await fetch(
-        import.meta.env.VITE_BASE_URL + "tasks/getTask/" + id,
+        import.meta.env.VITE_BASE_URL + "/tasks/getTask/" + id,
         {
           method: "GET",
           headers: {

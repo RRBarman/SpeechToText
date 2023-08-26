@@ -18,7 +18,7 @@ const AuthModel = ({ setShowAuthModal }) => {
     // console.log(regform);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}auth/register`,
+        `${import.meta.env.VITE_BASE_URL}/auth/register`,
         {
           method: "POST",
           headers: {
@@ -41,7 +41,7 @@ const AuthModel = ({ setShowAuthModal }) => {
     // console.log(loginform);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}auth/login`,
+        `${import.meta.env.VITE_BASE_URL}/auth/login`,
         {
           method: "POST",
           headers: {
