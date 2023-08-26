@@ -18,3 +18,4 @@
 ### Audio to Text Transcription using Assembly Ai Api.
 ### Access to Past Transcripted Texts .
 ### Database : MONGODB
+### Backend Deployed using Render.com
