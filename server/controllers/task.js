@@ -10,9 +10,9 @@ export async function getTask(req, res) {
         return res.status(403).json({ message: 'Forbidden' });
     }
     res.json(task);
-    res.status(200).json({
+    /*res.status(200).json({
         message: `Task ${id}`
-    });
+    });*/
 }
 
 export async function getAllTasks(req, res) {
@@ -25,7 +25,7 @@ export async function getAllTasks(req, res) {
         res.json(tasks);
     } catch (error) {
         console.log(error);
-        res.sjson({
+        res.json({
             error: error
         });
     }
