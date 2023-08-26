@@ -1,18 +1,15 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 import uploadAudio from "../storage/storage.js";
 import "./Content.css";
 const Base = import.meta.env.VITE_INTERNAL_SERVER;
+import { authContext } from "./ContextProvider.jsx";
 
-// import assemblyai from "assemblyai";
-// import { configDotenv } from "dotenv";
-// configDotenv();
-// assemblyai.setAPIKey(import.meta.env.VITE_APP_API_KEY);
 function Content() {
-  //const [scriptnew, setScriptnew] = useState(false);
   const [fileUrl, setFileUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [transcript, setTranscript] = useState({});
   const inputRef = useRef();
+  const { user } = useContext(authContext);
 
   const uploadAudioFile = (e) => {
     e.preventDefault();
@@ -36,18 +33,17 @@ function Content() {
   };
 
   const getTranscript = async () => {
-    const audio_url = fileUrl;
-    // http://localhost:3000/api/v1/upload
-    let token = window.localStorage.getItem("Authorization");
-    if (!token) {
-      alert("Please login and refresh.");
+    if (!user) {
+      alert("Please Login to continue");
+      return;
     }
-    fetch(Base + "/upload", {
+    const audio_url = fileUrl;
+    fetch(`${import.meta.env.VITE_BASE_URL}/upload`, {
       method: "POST",
       body: JSON.stringify({ audio_url }),
       headers: {
         "Content-Type": "application/json",
-        Authorization: token,
+        Authorization: user.token,
       },
     })
       .then((res) => res.json())

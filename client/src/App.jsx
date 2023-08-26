@@ -1,23 +1,36 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import Header from "./components/Header.jsx";
-import Content from "./components/Content.jsx";
-import Footer from "./components/Footer.jsx";
+import Content from "./components/Content";
 import "./App.css";
+import Layout from "./components/Layout";
+import AllUserTask from "./components/AllUserTask";
+import SingleUserTask from "./components/SingleUserTask";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ContextProvider } from "./components/ContextProvider";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Content />,
+      },
+      {
+        path: "/userTasks",
+        element: <AllUserTask />,
+      },
+      {
+        path: "/userTasks/:id",
+        element: <SingleUserTask />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0);
   return (
-    <>
-      <div id="main">
-        <div>
-          <Header />
-          <Content />
-          <Footer />
-        </div>
-      </div>
-    </>
+    <ContextProvider>
+      <RouterProvider router={router} />
+    </ContextProvider>
   );
 }
 
