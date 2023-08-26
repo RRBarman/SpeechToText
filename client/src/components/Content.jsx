@@ -7,6 +7,7 @@ import { authContext } from "./ContextProvider.jsx";
 function Content() {
   const [fileUrl, setFileUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const [loader, setloader] = useState(false);
   const [transcript, setTranscript] = useState({});
   const inputRef = useRef();
   const { user } = useContext(authContext);
@@ -37,6 +38,7 @@ function Content() {
       alert("Please Login to continue");
       return;
     }
+    setloader(true);
     const audio_url = fileUrl;
     fetch(`${import.meta.env.VITE_BASE_URL}/upload`, {
       method: "POST",
@@ -51,7 +53,8 @@ function Content() {
         console.log(data);
 
         setTranscript(data); // raw data
-        //setScriptnew(true);
+        //setScriptnew(true)
+        setloader(false);
       })
       .catch((error) => {
         console.log(error);
@@ -65,19 +68,24 @@ function Content() {
       {fileUrl ? (
         <button onClick={submitform}>submit</button>
       ) : (
-        <button onClick={uploadAudioFile}>upload audio</button>
+        <button onClick={uploadAudioFile} disabled={uploading}>
+          upload audio
+        </button>
       )}
       {transcript.result ? (
         <>
           <h1>GENERATED TEXT</h1>
-          <p style={{ whiteSpace: "pre-wrap", textAlign: "left" }}>
+          <p
+            className="text-generated"
+            style={{ whiteSpace: "pre-wrap", textAlign: "left" }}
+          >
             {transcript.result}
           </p>
         </>
       ) : (
         <>
           <h1>GENERATED TEXT</h1>
-          <p></p>
+          <p>{loader && "We are procesing your audio!"}</p>
         </>
       )}
     </form>

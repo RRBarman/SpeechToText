@@ -11,3 +11,75 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
+@media screen {
+}
+.nav {
+  display: flex;
+  gap: 10px;
+  width: 450px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.profile {
+  gap: 10px;
+  display: flex;
+  margin-left: auto;
+}
+.card-contaier-inner {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 60%;
+  margin: 20px auto;
+  justify-content: center;
+}
+.task-card-container {
+  height: 200px;
+  width: 200px;
+  padding: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid darkmagenta;
+  text-overflow: ellipsis;
+  white-space: break-spaces;
+}
+.footer-newname {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: max-content;
+  margin: 0 auto;
+  z-index: 10;
+  padding-bottom: 20px;
+  background-color: #242424;
+}
+.card {
+  min-height: 600px;
+  display: flex;
+  place-items: center;
+  width: 700px;
+  margin: 0 auto;
+  flex-direction: column;
+  padding-top: 140px;
+}
+.card-inner-text {
+  border: 2px solid darkmagenta;
+  border-radius: 10px;
+  margin-top: 10px;
+  white-space: pre-wrap;
+  text-align: center;
+  padding: 5px;
+}
+.text-generated {
+  border: 2px solid darkmagenta;
+  border-radius: 10px;
+  margin-top: 10px;
+  text-align: center;
+  padding: 5px;
+  width: 500px;
+  margin: 0 auto;
+}

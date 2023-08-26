@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { authContext } from "./ContextProvider.jsx";
+import "./AuthModel.css";
 const AuthModel = ({ setShowAuthModal }) => {
   const { setUser } = useContext(authContext);
   const [reg, setreg] = useState(true);
@@ -68,68 +69,74 @@ const AuthModel = ({ setShowAuthModal }) => {
       </button>
       <div className="AuthNav">
         <button onClick={() => setreg((previous) => !previous)}>
-          {reg ? "Login" : "Register"}
+          Go To : {reg ? "Login" : "Register"}
         </button>
       </div>
       <div className="Auth-form">
         {reg ? (
-          <form className="Auth-reg-form" onSubmit={(e) => HandleReg(e)}>
-            <label>NAME:</label>
-            <input
-              value={regform.username}
-              onChange={(e) =>
-                setregform((formdata) => ({
-                  ...formdata,
-                  username: e.target.value, //username
-                }))
-              }
-            />
-            <label>Email:</label>
-            <input
-              value={regform.email}
-              onChange={(e) =>
-                setregform((formdata) => ({
-                  ...formdata,
-                  email: e.target.value,
-                }))
-              }
-            />
-            <label>PASSWORD:</label>
-            <input
-              value={regform.password}
-              onChange={(e) =>
-                setregform((formdata) => ({
-                  ...formdata,
-                  password: e.target.value,
-                }))
-              }
-            />
-            <button type="submit">Submit</button>
-          </form>
+          <>
+            <h1>REGISTRATION FORM :</h1>
+            <form className="Auth-reg-form" onSubmit={(e) => HandleReg(e)}>
+              <label>NAME:</label>
+              <input
+                value={regform.username}
+                onChange={(e) =>
+                  setregform((formdata) => ({
+                    ...formdata,
+                    username: e.target.value, //username
+                  }))
+                }
+              />
+              <label>Email:</label>
+              <input
+                value={regform.email}
+                onChange={(e) =>
+                  setregform((formdata) => ({
+                    ...formdata,
+                    email: e.target.value,
+                  }))
+                }
+              />
+              <label>PASSWORD:</label>
+              <input
+                value={regform.password}
+                onChange={(e) =>
+                  setregform((formdata) => ({
+                    ...formdata,
+                    password: e.target.value,
+                  }))
+                }
+              />
+              <button type="submit">Submit</button>
+            </form>
+          </>
         ) : (
-          <form className="Auth-login-form" onSubmit={(e) => HandleLogin(e)}>
-            <label>Email:</label>
-            <input
-              value={loginform.email}
-              onChange={(e) =>
-                setloginform((formdata) => ({
-                  ...formdata,
-                  email: e.target.value,
-                }))
-              }
-            />
-            <label>PASSWORD:</label>
-            <input
-              value={loginform.password}
-              onChange={(e) =>
-                setloginform((formdata) => ({
-                  ...formdata,
-                  password: e.target.value,
-                }))
-              }
-            />
-            <button type="submit">Submit</button>
-          </form>
+          <>
+            <h2>LOGIN FORM:</h2>
+            <form className="Auth-login-form" onSubmit={(e) => HandleLogin(e)}>
+              <label>Email:</label>
+              <input
+                value={loginform.email}
+                onChange={(e) =>
+                  setloginform((formdata) => ({
+                    ...formdata,
+                    email: e.target.value,
+                  }))
+                }
+              />
+              <label>PASSWORD:</label>
+              <input
+                value={loginform.password}
+                onChange={(e) =>
+                  setloginform((formdata) => ({
+                    ...formdata,
+                    password: e.target.value,
+                  }))
+                }
+              />
+              <button type="submit">Submit</button>
+            </form>
+          </>
         )}
       </div>
     </div>

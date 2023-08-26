@@ -1,0 +1,42 @@
+.Authmodel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto auto;
+  height: 500px;
+  width: 600px;
+  background-color: rgb(9, 43, 59);
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid rgb(25, 0, 255);
+}
+.close-modal {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  color: red;
+  font-size: 25px;
+  background-color: transparent;
+}
+h1 {
+  font-size: 25px;
+}
+h2 {
+  font-size: 25px;
+}
+.Auth-form input,
+label {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  height: 25px;
+}
+.Auth-form button {
+  display: block;
+  font-size: 20px;
+  padding: 10px 15px;
+  margin: 10px auto;
+}
